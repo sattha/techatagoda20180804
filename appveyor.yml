@@ -16,6 +16,7 @@ dotnet_csproj:
 before_build:
 - ps: >-
     npm install
+
     dotnet restore
 build:
   project: stage1\src\stage1.csproj
