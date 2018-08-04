@@ -17,15 +17,18 @@ before_build:
 - ps: >-
     cd src
 
-    npm i npm@latest -g
+    yarn install
 
-    npm install
+    yarn webpack --config webpack.config.vendor.js
+
+    yarn webpack
 
     cd ..
-
+    
     dotnet restore
 build:
-  project: techatagoda.csproj
+  project: techatagoda.sln
+  publish_aspnet_core: true
   verbosity: minimal
 notifications:
 - provider: GitHubPullRequest
