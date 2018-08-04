@@ -15,13 +15,17 @@ dotnet_csproj:
   informational_version: '{version}'
 before_build:
 - ps: >-
+    cd src
+
     npm i npm@latest -g
 
     npm install
 
+    cd ..
+
     dotnet restore
 build:
-  project: stage1\src\stage1.csproj
+  project: techatagoda.csproj
   verbosity: minimal
 notifications:
 - provider: GitHubPullRequest
